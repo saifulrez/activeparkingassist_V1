@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/Lib/jquery-1.9.1.js"></script>
+    <script src="Scripts/Lib/angular.js"></script>
+    <script src="Scripts/Lib/bootstrap.js"></script>
+    <script src="Scripts/Lib/ui-bootstrap.js"></script>
+    <script src="Scripts/Lib/ui-bootstrap-tpls.js"></script>
+    <script src="Scripts/App/app.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="Content/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="Content/bootstrap-theme.css">
+</head>
+<body ng-app="apaApp" ng-controller="apaController as vm">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="Content/sync-screen.jpg" style="width: 100%;" />
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-sm-offset-4 col-sm-4 col-sm-offset-4"><h2 class="text-center">State:&nbsp;{{vm.state.name}}</h2></div>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>User Input Allowed</th>
+                        <th>Functional</th>
+                        <th>Active</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Accelerator</td>
+                        <td>{{vm.state.accelerator.input}}</td>
+                        <td>{{vm.state.accelerator.functional}}</td>
+                        <td>{{vm.state.accelerator.active}}</td>
+                    </tr>
+                    <tr>
+                        <td>Brakes</td>
+                        <td>{{vm.state.brakes.input}}</td>
+                        <td>{{vm.state.brakes.functional}}</td>
+                        <td>{{vm.state.brakes.active}}</td>
+                    </tr>
+                    <tr>
+                        <td>Steering Wheel</td>
+                        <td>{{vm.state.steeringWheel.input}}</td>
+                        <td>{{vm.state.steeringWheel.functional}}</td>
+                        <td>{{vm.state.steeringWheel.active}}</td>
+                    </tr>
+                    <tr>
+                        <td>Ultrasonic Sensors</td>
+                        <td>{{vm.state.ultrasonic.input}}</td>
+                        <td>{{vm.state.ultrasonic.functional}}</td>
+                        <td>{{vm.state.ultrasonic.active}}</td>
+                    </tr>
+                    <tr>
+                        <td>Rear Camera</td>
+                        <td>{{vm.state.camera.input}}</td>
+                        <td>{{vm.state.camera.functional}}</td>
+                        <td>{{vm.state.camera.active}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8 col-md-offset-2 text-center" style="border: 1px solid black;">
+            <h4>{{vm.state.description}}</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 text-center" style="border: 1px solid black;">
+            <h1>Driver Interaction Buttons</h1>
+            <div class="btn-group-vertical">
+                <div class="btn btn-primary" ng-click="vm.startParking()">Start Parking</div>
+                <div class="btn btn-primary" ng-click="vm.cancelParking()">Cancel Parking</div>
+                <div class="btn btn-primary" ng-click="vm.engageBrakes()">Enagage Brakes</div>
+                <div class="btn btn-primary" ng-click="vm.accelerate()">Accelerate</div>
+                <div class="btn btn-primary" ng-click="vm.turnSteeringWheel()">Turn Steering Wheel</div>
+            </div>
+        </div>
+        <div class="col-sm-6 text-center" style="border: 1px solid black;">
+            <h1>Outside Interaction Buttons</h1>
+            <div class="btn-group-vertical">
+                <div class="btn btn-primary" ng-click="vm.normalEvent()">Normal</div>
+                <div class="btn btn-primary" ng-click="vm.obstacleEvent()">Obstacle</div>
+                <div class="btn btn-primary" ng-click="vm.collisionEvent()">Collision</div>
+                <div class="btn btn-primary" ng-click="vm.hardwareEvent()">Hardware Fault</div>
+                <div class="btn btn-primary" ng-click="vm.securityEvent()">Security Fault</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
